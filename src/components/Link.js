@@ -1,25 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Link = ({ active, children, onClick }) => {
-    if (active) {
-        return <span>{children}</span>
-    }
-
-    const handleClick = event => {
-        event.preventDefault()
-        onClick()
-    }
-
-    return (
-        <a
-            href=""
-            onClick={handleClick}
-        >
-            {children}
-        </a>
-    )
-}
+const Link = ({ active, children, onClick }) => (
+    <button
+        onClick={onClick}
+        disabled={active}
+        style={{
+            marginLeft: '4px'
+        }}
+    >
+        {children}
+    </button>
+)
 
 Link.propTypes = {
     active: PropTypes.bool.isRequired,
