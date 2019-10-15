@@ -15,9 +15,10 @@ const applyAddTodo = (state, action) => (
     [
         ...state,
         {
-            id: action.id,
-            text: action.text,
-            completed: false
+            userId: '',
+            id: state.length+1,
+            title: action.title,
+            completed: false,
         }
     ]
 )
