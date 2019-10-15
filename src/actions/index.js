@@ -1,10 +1,10 @@
 import { ActionTypes } from "../constants"
 
 let nexTodoId = 0
-const doAddTodo = text => ({
+const doAddTodo = title => ({
     type: ActionTypes.ADD_TODO,
     id: nexTodoId++,
-    text
+    title
 })
 
 const doSetVisibilityFilter = filter => ({
@@ -17,8 +17,25 @@ const doToggleTodo = id => ({
     id
 })
 
+const doFetchTodosRequested = () => ({
+    type: ActionTypes.TODOS_FETCH_REQUESTED
+})
+
+const doFetchTodosSucceeded = todos => ({
+    type: ActionTypes.TODOS_FETCH_SUCCEEDED,
+    todos
+})
+
+const doFetchTodosFailed = error => ({
+    type: ActionTypes.TODOS_FETCH_FAILED,
+    error
+})
+
 export {
     doAddTodo,
     doSetVisibilityFilter,
     doToggleTodo,
+    doFetchTodosRequested,
+    doFetchTodosSucceeded,
+    doFetchTodosFailed,
 }
