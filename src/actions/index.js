@@ -1,37 +1,24 @@
-/*
- * action types
- */
+import { ActionTypes } from "../constants"
 
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-
-/*
- * other constants
- */
-
-export const VisibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE',
-}
-
-/*
- * action creators
- */
 let nexTodoId = 0
-export const addTodo = text => ({
-    type: ADD_TODO,
+const doAddTodo = text => ({
+    type: ActionTypes.ADD_TODO,
     id: nexTodoId++,
     text
 })
 
-export const setVisibilityFilter = filter => ({
-    type: SET_VISIBILITY_FILTER,
+const doSetVisibilityFilter = filter => ({
+    type: ActionTypes.SET_VISIBILITY_FILTER,
     filter
 })
 
-export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
+const doToggleTodo = id => ({
+    type: ActionTypes.TOGGLE_TODO,
     id
 })
+
+export {
+    doAddTodo,
+    doSetVisibilityFilter,
+    doToggleTodo,
+}
