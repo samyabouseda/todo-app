@@ -12,7 +12,6 @@ function* watchAll() {
 function* fetchTodos() {
     try {
         const result = yield call(Api.fetchTodos)
-        console.log(result)
         yield put(doFetchTodosSucceeded(result))
     } catch (error) {
         yield put(doFetchTodosFailed(error))
